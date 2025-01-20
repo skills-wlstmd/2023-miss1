@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dummy
+  namespace: skills
+  labels:
+    app: dummy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dummy
+  template:
+    metadata:
+      labels:
+        app: dummy
+    spec:
+      containers:
+        - name: dummy
+          image: 362708816803.dkr.ecr.ap-northeast-2.amazonaws.com/dummy:latest
+          ports:
+            - containerPort: 8080
